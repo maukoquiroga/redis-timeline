@@ -92,7 +92,7 @@ module Timeline::Track
         {
           id: target.id,
           class: target.class.to_s,
-          display_name: target.to_s
+          display_name: target.respond_to?(:display_name) ? target.display_name : target.to_s
         }.merge(extra_fields_for(target))
       else
         nil
